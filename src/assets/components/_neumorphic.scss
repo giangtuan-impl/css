@@ -1,0 +1,127 @@
+@mixin ring($x) {
+  width: (60px * $x);
+  height: (60px * $x);
+  z-index: 10-$x;
+  animation: "glow#{$x}" 5s infinite;
+}
+
+.neumorphic {
+  .rings {
+    position: relative;
+    margin: 1px;
+  }
+
+  .ring {
+    border: 10px solid #fff;
+    border-radius: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: -10px -10px 15px rgb(255 255 255 / 30%),
+      10px 10px 15px rgb(70 70 70 / 15%),
+      inset -10px -10px 15px rgb(255 255 255 / 30%),
+      inset 10px 10px 15px rgb(70 70 70 / 15%);
+
+    &.--first {
+      @include ring(1);
+    }
+
+    &.--second {
+      @include ring(2);
+    }
+
+    &.--third {
+      @include ring(3);
+    }
+
+    &.--fourth {
+      @include ring(4);
+    }
+
+    &.--fifth {
+      @include ring(5);
+    }
+  }
+}
+@keyframes glow1 {
+  10% {
+    background-color: #ececec;
+  }
+  20% {
+    background-color: red;
+  }
+
+  90% {
+    background-color: red;
+  }
+
+  100% {
+    background-color: yellow;
+  }
+}
+
+@keyframes glow2 {
+  20% {
+    background-color: #ececec;
+  }
+  30% {
+    background-color: red;
+  }
+
+  80% {
+    background-color: red;
+  }
+
+  90% {
+    background-color: yellow;
+  }
+}
+
+@keyframes glow3 {
+  30% {
+    background-color: #ececec;
+  }
+  40% {
+    background-color: red;
+  }
+
+  70% {
+    background-color: red;
+  }
+
+  80% {
+    background-color: yellow;
+  }
+}
+
+@keyframes glow4 {
+  40% {
+    background-color: #ececec;
+  }
+  50% {
+    background-color: red;
+  }
+
+  60% {
+    background-color: red;
+  }
+
+  70% {
+    background-color: yellow;
+  }
+}
+
+@keyframes glow5 {
+  50% {
+    background-color: #ececec;
+  }
+
+  60% {
+    background-color: blue;
+  }
+
+  70% {
+    background-color: #ececec;
+  }
+}
